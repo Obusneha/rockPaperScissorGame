@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100&family=Poppins:ital,wght@0,300;0,400;0,600;0,800;1,500;1,600&display=swap');
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body{
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(115,12,138,1) 99%, rgba(107,14,108,0.9136029411764706) 100%);
+background-repeat: no-repeat;
+height: 100vh;
+overflow: hidden;
+}
+.container{
+  display: flex;
+  max-width: 700px;
+  margin: 10px auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  border: 2px solid rgb(143, 106, 151) ;
+  border-radius: 10px;
+  padding: 1rem 1.4rem 1rem 2rem;
+}
+
+.logo img {
+height: 100%;
+}
+
+.score{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: aliceblue;
+  width: 150px;
+  height: 100%;
+  border-radius: 10px;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.scoreTittle{
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.scoreNum{
+      font-size: 24px;
+      font-weight: 600;
+      padding:0 0 5px 15px;
+}
+.scoreComp{
+font-size: 24px;
+font-weight: 600;
+padding-left: 15px;
+}
+
+
+.game{
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: (repeat(2, 1fr));
+  grid-template-areas: "paper scissors" "rock rock";
+  place-items: center;
+  height: 400px;
+}
+
+.game::before{
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  left: 28%;
+  top: 25%;
+  background: url(../images/bg-triangle.svg) no-repeat;
+  z-index: -1;
+}
+
+.choice-btn[data-choice="paper"]{
+  grid-area: paper;
+}
+.choice-btn[data-choice="scissors"]{
+  grid-area: scissors;
+}
+.choice-btn[data-choice="rock"]{
+  grid-area: rock;
+}
+
+.choice-btn{
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.choice{
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+  background-color: aliceblue;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.choice-btn:hover{
+  transition: 0.90s;
+  -webkit-transition: 0.90s;
+  -moz-transition: 0.90s;
+  -ms-transition: 0.90s;
+  -o-transition: 0.90s;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.choice.paper{
+  border: 10px solid rgb(226, 165, 33);
+}
+.choice.paper:hover,.choice.scissors:hover,.choice.rock:hover{
+  transform: scale(1.1);
+  background-color: rgb(148, 228, 148);
+}
+.choice.scissors{
+  border: 10px solid rgb(7, 181, 194);
+}
+
+.choice.rock{
+  border: 10px solid rgb(224, 13, 136);
+}
+
+#displayResult{
+  margin: 10px 0;
+  text-align: center;
+  font-size: 30px;
+  color: aliceblue;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 600px){
+  .game::before{
+    left: 10%;
+  }
+  .container{
+    padding: 10px;
+    border-radius: 0;
+  }
+}
